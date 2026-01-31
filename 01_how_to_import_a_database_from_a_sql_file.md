@@ -99,3 +99,16 @@ Import the data from the SQL file into the database
 \i name_of_the_database.sql
 ```
 _______________________________________________________________________________
+
+To confirm that this worked, run this command:
+```
+\dt
+```
+
+This should show all of the tables in the database.
+
+_______________________________________________________________________________
+
+Type `\q` and press enter to exit the `psql` prompt
+
+_______________________________________________________________________________
