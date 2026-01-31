@@ -1,0 +1,46 @@
+-- ===================================================
+
+-- ABOUT: The structure of a PostgreSQL cluster
+
+-- ===================================================
+-- A PostgreSQL cluster (sometimes referred to as a PostgreSQL instance),
+-- is a collection of databases managed by a single running PostgreSQL server process.
+-- All the databases in a cluster share the same data directory on the file system.
+-- A PostgreSQL cluster can run multiple databases simultaneously.
+-- Each database is logically isolated but shares the same server process and data directory.
+-- You can use one user to connect to multiple databases at the same time,
+-- and query multiple databases at the same time but you need to open a new terminal session for each connection.
+
+-- ===================================================
+-- A Postgres Database
+-- ===================================================
+-- Each database can have multiple tables.
+-- A database can also have multiple schemas.
+-- Think of schemas as a category label that is used to group several tables together.
+-- By default each database will have one schema called 'public', and all tables will be placed inside this schema.
+
+-- ===================================================
+-- Here's a representation of the structure
+-- ===================================================
+-- .
+-- ├── database_a
+-- │   └── public
+-- │       ├── table_01
+-- │       ├── table_02
+-- │       ├── table_03
+-- │       ├── table_04
+-- │       └── table_05
+-- ├── database_b
+-- │   └── public
+-- │       ├── table_01
+-- │       ├── table_02
+-- │       ├── table_03
+-- │       ├── table_04
+-- │       └── table_05
+-- └── database_c
+--     └── public
+--         ├── table_01
+--         ├── table_02
+--         ├── table_03
+--         ├── table_04
+--         └── table_05
