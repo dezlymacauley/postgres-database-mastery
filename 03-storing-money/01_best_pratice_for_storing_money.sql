@@ -46,13 +46,13 @@
 CREATE TABLE donations (
     user_name TEXT NOT NULL,
     currency_code CHAR(3) NOT NULL,
-    minor_unit BIGINT NOT NULL
+    amount_in_minor_unit BIGINT NOT NULL
 );
 
 -------------------------------------------------------------------------------
 
 INSERT INTO donations 
-    (user_name, currency_code, minor_unit)
+    (user_name, currency_code, amount_in_minor_unit)
 VALUES
     -- $215.78
     ('Alice', 'USD', 21578),       
@@ -71,14 +71,40 @@ VALUES
 
 -------------------------------------------------------------------------------
 
--- +-----------+---------------+------------+
--- | user_name | currency_code | minor_unit |
--- |-----------+---------------+------------|
--- | Alice     | USD           | 21578      |
--- | Bob       | EUR           | 18000      |
--- | Charlie   | JPY           | 3000       |
--- | Diana     | GBP           | 12550      |
--- | Eve       | KRW           | 50000      |
--- +-----------+---------------+------------+
+-- Here's how to view the table exactly as the data is stored.
+SELECT * FROM donations;
+
+-- +-----------+---------------+----------------------+
+-- | user_name | currency_code | amount_in_minor_unit |
+-- |-----------+---------------+----------------------|
+-- | Alice     | USD           | 21578                |
+-- | Bob       | EUR           | 18000                |
+-- | Charlie   | JPY           | 3000                 |
+-- | Diana     | GBP           | 12550                |
+-- | Eve       | KRW           | 50000                |
+-- +-----------+---------------+----------------------+
+
+-------------------------------------------------------------------------------
+
+-- Here's my query to view the amount
+SELECT 
+    user_name,
+    currency_code,
+    CASE 
+        WHEN currency_code IN ('JPY','KRW','VND') 
+        THEN amount_in_minor_unit
+        ELSE TRUNC(amount_in_minor_unit / 100.0, 2)
+    END AS amount
+FROM donations;
+
+-- +-----------+---------------+--------+
+-- | user_name | currency_code | amount |
+-- |-----------+---------------+--------|
+-- | Alice     | USD           | 215.78 |
+-- | Bob       | EUR           | 180.00 |
+-- | Charlie   | JPY           | 3000   |
+-- | Diana     | GBP           | 125.50 |
+-- | Eve       | KRW           | 50000  |
+-- +-----------+---------------+--------+
 
 -------------------------------------------------------------------------------
