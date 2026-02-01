@@ -37,13 +37,15 @@ VALUES
     ('Max', 't'),
     ('Jane', 'f'),
     ('Gojo', 'yes'),
-    ('Bruce', 'no');
+    ('Bruce', 'no'),
+    ('Lee', 'off'),
+    ('Kate', 'on');
 
 -- _______________________________________________________________________________
 
 SELECT * FROM player_status;
 
--- These will be the output
+-- This will be the output
 
 -- +-----------+-----------+
 -- | user_name | is_online |
@@ -56,6 +58,8 @@ SELECT * FROM player_status;
 -- | Jane      | False     |
 -- | Gojo      | True      |
 -- | Bruce     | False     |
+-- | Lee       | False     |
+-- | Kate      | True      |
 -- +-----------+-----------+
 
 -- _______________________________________________________________________________
