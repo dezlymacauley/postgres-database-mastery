@@ -2,9 +2,9 @@
 
 -- These are the integer types in Postgres:
 
--- SMALLINT (2 bytes): -32,768 to 32,767
--- INT (4 bytes): -2,147,483,648 to 2,147,483,647
--- BIGINT (8 bytes): -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+-- SMALLINT (2 bytes | 16 bits): -32,768 to 32,767
+-- INT (4 bytes | 32 bits): -2,147,483,648 to 2,147,483,647
+-- BIGINT (8 bytes | 64 bits): -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
 
 -- You can also use aliases:
 -- int2 is the same as SMALLINT
